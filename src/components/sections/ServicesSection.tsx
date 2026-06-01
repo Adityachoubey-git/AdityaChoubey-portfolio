@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import FadeIn from "../ui/FadeIn";
 import TechLogo from "../ui/SvgLogos";
@@ -22,6 +22,28 @@ const techStackCategories = [
     skills: ["ESP32", "WebSockets", "Git", "GitHub", "Postman"]
   }
 ];
+
+// Technical skill level database
+const skillLevels: Record<string, { level: number; label: string }> = {
+  "react": { level: 92, label: "Expert // Component Architecture & Context Hooks" },
+  "next.js": { level: 90, label: "Advanced // App Router, SSR, Hydration & ISR" },
+  "typescript": { level: 88, label: "Advanced // Type Safety, Generics & Strict Checking" },
+  "javascript": { level: 95, label: "Expert // Asynchronous Flow, Event Loop & Core Engine" },
+  "tailwind css": { level: 93, label: "Expert // Responsive Utilities & Fluid Design Systems" },
+  "html5": { level: 95, label: "Expert // Semantic DOM, SEO & Accessibility Standards" },
+  "css3": { level: 90, label: "Advanced // Flexbox, Grid Layouts & Keyframe Animations" },
+  "node.js": { level: 88, label: "Advanced // Non-Blocking I/O & Event-Driven Processors" },
+  "express.js": { level: 87, label: "Advanced // Middleware Engineering & API Routing" },
+  "prisma": { level: 85, label: "Proficient // Schema Relations & Complex Model Queries" },
+  "postgresql": { level: 86, label: "Advanced // Relational Tables, Indexing & JSONB Storage" },
+  "mongodb": { level: 84, label: "Proficient // Document Structures & Aggregation Frameworks" },
+  "influxdb": { level: 80, label: "Proficient // Time-Series Analytics & Flux Query Language" },
+  "esp32": { level: 85, label: "Proficient // Microcontrollers, Firmware & Real-time Telemetry" },
+  "websockets": { level: 90, label: "Advanced // Low-Latency Duplex Connections (120ms)" },
+  "git": { level: 88, label: "Advanced // Versioning, Branch Rebasing & PR Management" },
+  "github": { level: 90, label: "Advanced // GitHub Actions, CI/CD Pipelines & Team Collaboration" },
+  "postman": { level: 88, label: "Advanced // API Integration Testing & Collection Runs" }
+};
 
 const services = [
   {
@@ -52,6 +74,13 @@ const services = [
 ];
 
 export default function ServicesSection() {
+  const [selectedSkill, setSelectedSkill] = useState<string>("React");
+
+  const currentSkillInfo = skillLevels[selectedSkill.toLowerCase()] || {
+    level: 85,
+    label: "Proficient // Practical Industry Experience"
+  };
+
   return (
     <section
       id="skills"
@@ -71,7 +100,62 @@ export default function ServicesSection() {
           </FadeIn>
         </div>
 
-        {/* 1. New Elegant Categorized Tech Stack Grid */}
+        {/* 1. Sleek Interactive Skill Progress Bar Radar Panel */}
+        <FadeIn delay={0.1} y={20} className="w-full mb-12 sm:mb-16">
+          <div className="w-full bg-[#FAFBFD] border border-[#0C0C0C]/10 rounded-[32px] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 shadow-[0_8px_30px_rgb(0,0,0,0.015)] select-none">
+            
+            {/* Left Brand Logo & Heading info */}
+            <div className="flex items-center gap-4 text-left">
+              <div className="w-12 h-12 rounded-2xl bg-white border border-[#0C0C0C]/10 flex items-center justify-center p-2.5 shrink-0 shadow-[0_4px_12px_rgba(0,0,0,0.02)]">
+                <TechLogo name={selectedSkill} className="w-full h-full object-contain" />
+              </div>
+              <div className="flex flex-col justify-center">
+                <span className="text-[9px] font-bold tracking-[0.25em] uppercase text-[#0C0C0C]/40 leading-none">
+                  Skill Proficiency scanner
+                </span>
+                <h4 className="text-xl font-black uppercase tracking-tight text-[#0C0C0C] leading-none mt-2">
+                  {selectedSkill}
+                </h4>
+              </div>
+            </div>
+
+            {/* Center Spring Progress Bar */}
+            <div className="flex-grow max-w-lg w-full flex flex-col text-left justify-center">
+              <div className="flex justify-between items-end mb-2 px-0.5">
+                <span className="text-[10px] font-bold tracking-[0.1em] text-[#0C0C0C]/50 uppercase truncate max-w-[75%] sm:max-w-none">
+                  {currentSkillInfo.label}
+                </span>
+                <span className="font-mono font-black text-sm text-[#0C0C0C]/80 leading-none">
+                  {currentSkillInfo.level}%
+                </span>
+              </div>
+              
+              {/* Progress Track Container */}
+              <div className="w-full h-2 bg-[#0C0C0C]/5 rounded-full overflow-hidden relative">
+                <motion.div
+                  key={selectedSkill} // Forces re-mount and animation trigger on skill change
+                  initial={{ width: 0 }}
+                  animate={{ width: `${currentSkillInfo.level}%` }}
+                  transition={{ type: "spring", stiffness: 70, damping: 14, mass: 0.8 }}
+                  className="absolute left-0 top-0 h-full bg-gradient-to-r from-[#646973] to-[#0c0c0c] rounded-full shadow-[0_0_8px_rgba(12,12,12,0.1)]"
+                />
+              </div>
+            </div>
+
+            {/* Right Callout instruction */}
+            <div className="hidden lg:flex flex-col text-right shrink-0">
+              <span className="text-[9px] font-bold tracking-[0.2em] text-[#0C0C0C]/40 uppercase leading-none">
+                Interactive Radar
+              </span>
+              <span className="text-xs font-semibold text-[#0C0C0C]/75 mt-2 leading-none">
+                Click Pills to Scan
+              </span>
+            </div>
+
+          </div>
+        </FadeIn>
+
+        {/* 2. Elegant Categorized Tech Stack Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-24 md:mb-28 w-full text-left">
           {techStackCategories.map((category, idx) => (
             <FadeIn key={idx} delay={idx * 0.15} y={30} className="flex">
@@ -93,18 +177,26 @@ export default function ServicesSection() {
 
                 {/* Flexible wrap pill list of technology items */}
                 <div className="flex flex-wrap gap-2 sm:gap-2.5 mt-auto">
-                  {category.skills.map((skill) => (
-                    <motion.div
-                      key={skill}
-                      whileHover={{ scale: 1.04, y: -2 }}
-                      className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-[#0C0C0C]/8 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.01)] hover:border-[#0C0C0C]/20 hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)] cursor-default transition-all duration-200"
-                    >
-                      <TechLogo name={skill} className="w-4.5 h-4.5 shrink-0" />
-                      <span className="text-[11px] font-semibold text-[#0C0C0C]/85 tracking-wide">
-                        {skill}
-                      </span>
-                    </motion.div>
-                  ))}
+                  {category.skills.map((skill) => {
+                    const isSelected = selectedSkill.toLowerCase() === skill.toLowerCase();
+                    return (
+                      <motion.button
+                        key={skill}
+                        onClick={() => setSelectedSkill(skill)}
+                        whileHover={{ scale: 1.04, y: -2 }}
+                        className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border cursor-pointer select-none transition-all duration-200 ${
+                          isSelected
+                            ? "border-[#0C0C0C] bg-white shadow-[0_4px_12px_rgba(0,0,0,0.06)] scale-[1.03] font-bold"
+                            : "border-[#0C0C0C]/8 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.01)] hover:border-[#0C0C0C]/25 hover:shadow-[0_4px_12px_rgba(0,0,0,0.03)]"
+                        }`}
+                      >
+                        <TechLogo name={skill} className="w-4.5 h-4.5 shrink-0" />
+                        <span className={`text-[11px] tracking-wide ${isSelected ? "text-[#0C0C0C] font-bold" : "text-[#0C0C0C]/85 font-semibold"}`}>
+                          {skill}
+                        </span>
+                      </motion.button>
+                    );
+                  })}
                 </div>
               </div>
             </FadeIn>

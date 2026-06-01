@@ -65,11 +65,11 @@ export default function HeroSection() {
         </FadeIn>
       </div>
 
-      {/* 2. Hero Heading (Centered/Middle) */}
-      <div className="flex-grow flex items-center justify-center z-20 relative w-full px-6 md:px-10 overflow-hidden">
+      {/* 2. Hero Heading (Aligned to top on mobile to sit above the centered portrait) */}
+      <div className="flex-grow flex items-start sm:items-center justify-center z-20 relative w-full px-6 md:px-10 overflow-hidden pt-[16vh] sm:pt-0">
         <div className="w-full overflow-hidden">
           <FadeIn delay={0.15} y={40} className="w-full">
-            <h1 className="hero-heading font-black uppercase tracking-tight leading-none text-center select-none text-[8vw] sm:text-[10vw] md:text-[11vw] lg:text-[12.5vw] mt-6 sm:mt-4 md:-mt-5">
+            <h1 className="hero-heading font-black uppercase tracking-tight leading-none text-center select-none text-[10vw] sm:text-[10vw] md:text-[11vw] lg:text-[12.5vw] mt-6 sm:mt-4 md:-mt-5">
               Hi, i&apos;m aditya
             </h1>
           </FadeIn>

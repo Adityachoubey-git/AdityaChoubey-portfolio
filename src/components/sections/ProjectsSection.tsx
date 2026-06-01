@@ -202,12 +202,12 @@ function ProjectCard({
         </div>
 
         {/* Right Column (60% width tall image on desktop, 100% width full render on mobile) */}
-        <div className="w-full md:w-[60%] flex flex-grow min-h-0 overflow-hidden rounded-[24px] sm:rounded-[36px] md:rounded-[50px]">
+        <div className="w-full md:w-[60%] flex flex-grow min-h-0 overflow-hidden rounded-[24px] sm:rounded-[36px] md:rounded-[50px] justify-center items-center bg-[#0C0C0C]/30">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={images.col2}
             alt={`${name} - Render Showcase`}
-            className="w-full h-full object-cover pointer-events-none select-none"
+            className="w-full h-full object-contain md:object-cover pointer-events-none select-none"
             style={{ minHeight: "100%" }}
           />
         </div>
