@@ -15,7 +15,7 @@ const projects = [
       col1_2: "soulspace3.jpeg",
       col2: "/soulspace2.png",
     },
-    liveUrl: "",
+    liveUrl: "https://drive.google.com/file/d/18E5g-p6B0bS2hI10966G0_RV1ILRgAUF/view?usp=sharing",
     githubUrl: "https://github.com/manavgarg-source3/Soulspace",
   },
   {
@@ -180,11 +180,11 @@ function ProjectCard({
         </div>
       </div>
 
-      {/* Bottom Row: Two-column Image Grid */}
-      <div className="flex flex-col md:flex-row gap-4 sm:gap-6 w-full flex-grow overflow-hidden">
+      {/* Bottom Row: Responsive Image Grid */}
+      <div className="flex flex-col md:flex-row gap-4 sm:gap-6 w-full flex-grow overflow-hidden min-h-0">
 
-        {/* Left Column (40% width stacked images) */}
-        <div className="w-full md:w-[40%] flex flex-col gap-4 sm:gap-6 justify-between">
+        {/* Left Column (40% width stacked images) - hidden on mobile/tablet for clean scaling */}
+        <div className="hidden md:flex w-full md:w-[40%] flex-col gap-4 sm:gap-6 justify-between shrink-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={images.col1_1}
@@ -201,13 +201,13 @@ function ProjectCard({
           />
         </div>
 
-        {/* Right Column (60% width tall image) */}
-        <div className="w-full md:w-[60%] flex">
+        {/* Right Column (60% width tall image on desktop, 100% width full render on mobile) */}
+        <div className="w-full md:w-[60%] flex flex-grow min-h-0 overflow-hidden rounded-[24px] sm:rounded-[36px] md:rounded-[50px]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={images.col2}
             alt={`${name} - Render Showcase`}
-            className="w-full object-cover rounded-[30px] sm:rounded-[40px] md:rounded-[50px] pointer-events-none select-none flex-grow h-[200px] sm:h-[260px] md:h-auto"
+            className="w-full h-full object-cover pointer-events-none select-none"
             style={{ minHeight: "100%" }}
           />
         </div>

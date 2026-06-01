@@ -2,8 +2,9 @@
 
 import React from "react";
 import FadeIn from "../ui/FadeIn";
-import Magnet from "../ui/Magnet";
+import FluidCursorFollow from "../ui/FluidCursorFollow";
 import ContactButton from "../ui/ContactButton";
+import { File, FileBox, FileUser } from "lucide-react";
 
 export default function HeroSection() {
   const scrollToSection = (id: string) => {
@@ -25,8 +26,8 @@ export default function HeroSection() {
               className="text-[#D7E2EA] font-extrabold uppercase tracking-widest text-xs sm:text-base select-none hover:opacity-80 transition-opacity cursor-pointer hero-heading"
               title="View Resume"
             >
-              <span className="inline md:hidden">ADITYA 📄.</span>
-              <span className="hidden md:inline">ADITYA KUMAR CHOUBEY 📄</span>
+              <span className="inline md:hidden">ADITYA </span>
+              <span className="hidden md:inline">ADITYA KUMAR CHOUBEY  </span>
             </button>
             <div className="flex items-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
               <button
@@ -82,13 +83,7 @@ export default function HeroSection() {
           y={30}
           className="w-full h-full flex justify-center items-end"
         >
-          <Magnet
-            padding={150}
-            strength={3}
-            activeTransition="transform 0.3s ease-out"
-            inactiveTransition="transform 0.6s ease-in-out"
-            className="w-full h-full flex justify-center items-end"
-          >
+          <FluidCursorFollow className="w-full h-full flex justify-center items-end">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/image.png"
@@ -96,7 +91,7 @@ export default function HeroSection() {
               className="w-full h-auto object-contain select-none pointer-events-none"
               style={{ maxHeight: "75vh" }}
             />
-          </Magnet>
+          </FluidCursorFollow>
         </FadeIn>
       </div>
 

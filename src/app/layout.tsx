@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Kanit } from "next/font/google";
 import "./globals.css";
+import CustomCursor from "@/components/ui/CustomCursor";
 
 const kanit = Kanit({
   variable: "--font-kanit",
@@ -25,6 +26,7 @@ export default function RootLayout({
       style={{ backgroundColor: "#0C0C0C" }}
     >
       <body className="min-h-full flex flex-col bg-[#0C0C0C] text-[#D7E2EA] antialiased">
+        <CustomCursor />
         {children}
       </body>
     </html>
