@@ -51,8 +51,8 @@ const projects = [
       col1_2: "staff2.png",
       col2: "staff3.png",
     },
-    liveUrl: "", // Grayed out unclickable
-    githubUrl: "https://github.com/Adityachoubey-git/minor_project",
+    liveUrl: "https://staff-connect-odd8.vercel.app/", // Grayed out unclickable
+    githubUrl: "https://github.com/Adityachoubey-git/StaffConnect",
   },
 
 ];
