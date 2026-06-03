@@ -8,6 +8,18 @@ import LiveProjectButton from "../ui/LiveProjectButton";
 const projects = [
   {
     num: "01",
+    category: "Employee Management System -Full stack(in progress)",
+    name: "Staff Connect",
+    images: {
+      col1_1: "staff1.png",
+      col1_2: "staff2.png",
+      col2: "staff3.png",
+    },
+    liveUrl: "https://staff-connect-odd8.vercel.app/", // Grayed out unclickable
+    githubUrl: "https://github.com/Adityachoubey-git/StaffConnect",
+  },
+  {
+    num: "02",
     category: "AI & Full Stack",
     name: "Soulspace",
     images: {
@@ -19,7 +31,7 @@ const projects = [
     githubUrl: "https://github.com/manavgarg-source3/Soulspace",
   },
   {
-    num: "02",
+    num: "03",
     category: "Full Stack Developer Intern- IIT Delhi IAFSM",
     name: "CMF - IITD",
     images: {
@@ -31,7 +43,7 @@ const projects = [
     githubUrl: "",
   },
   {
-    num: "03",
+    num: "04",
     category: "IoT & Full Stack",
     name: "Lab Autonomy",
     images: {
@@ -42,18 +54,7 @@ const projects = [
     liveUrl: "", // Grayed out unclickable
     githubUrl: "https://github.com/Adityachoubey-git/minor_project",
   },
-  {
-    num: "04",
-    category: "Employee Management System -Full stack",
-    name: "Staff Connect",
-    images: {
-      col1_1: "staff1.png",
-      col1_2: "staff2.png",
-      col2: "staff3.png",
-    },
-    liveUrl: "https://staff-connect-odd8.vercel.app/", // Grayed out unclickable
-    githubUrl: "https://github.com/Adityachoubey-git/StaffConnect",
-  },
+
 
 ];
 

@@ -171,7 +171,7 @@ export default function CustomLoader({ onComplete }: CustomLoaderProps) {
           transition={{ delay: 0.6, duration: 0.8 }}
           className="text-[#D7E2EA]/50 font-light tracking-[0.35em] text-[9px] uppercase mb-16"
         >
-          Full Stack & IoT Developer • Portfolio
+          A SDE & Full Stack Developer • Portfolio
         </motion.p>
 
         {/* Premium visual progress bar */}
